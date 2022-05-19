@@ -1,21 +1,21 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import { FaSignOutAlt, faUser } from "react-icons/fa";
+import { FaSignOutAlt } from "react-icons/fa";
 
 function Header() {
   const navigate = useNavigate();
-  const { success, loading, user, authLogout } = useContext(AuthContext);
+  const { user, authLogout } = useContext(AuthContext);
 
   useEffect(() => {
     if (!user) {
       navigate("/login");
     }
-  }, [user]);
+  }, [user, navigate]);
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/#">
           Menu App
         </a>
         <button
@@ -33,7 +33,7 @@ function Header() {
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#">
+              <a class="nav-link active" href="/#">
                 Home
                 <span class="visually-hidden">(current)</span>
               </a>
@@ -41,7 +41,7 @@ function Header() {
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="/#">
                 <faUser />
                 {user ? user.username : ""}
               </a>
