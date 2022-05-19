@@ -26,7 +26,6 @@ function AuthContextProvider({ children }) {
       .then((res) => res.json())
       .then((data) => {
         setSuccess(true);
-        setUser(data);
       })
       .catch((err) => {
         setError(err);

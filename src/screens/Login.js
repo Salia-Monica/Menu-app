@@ -14,7 +14,8 @@ function Login() {
     if (success) {
       navigate("/home");
     }
-  }, [success]);
+  }, [success]
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
