@@ -5,7 +5,7 @@ import { AuthContext } from "../context/auth.context";
 function Register() {
   const navigate = useNavigate();
 
-  const { success, loading, user, authRegister } = useContext(AuthContext);
+  const { success, loading, authRegister } = useContext(AuthContext);
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -15,7 +15,7 @@ function Register() {
     if (success) {
       navigate("/home");
     }
-  }, [success]);
+  }, [success,navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

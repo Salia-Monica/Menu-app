@@ -6,13 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
   
-  const { user, success } = useContext(AuthContext);
+  const {  success } = useContext(AuthContext);
   const {isPending, menus, error, getAllMenus}=useContext(MenuContext)
 
   const navigate = useNavigate()
    React.useEffect(()=>{
      getAllMenus();
-   }, []);
+   },
+);
 
    React.useEffect(()=>{
      if(!success){
